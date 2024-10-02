@@ -1,5 +1,6 @@
 package br.com.pug;
 
+import br.com.pug.client.ClientHttpConfiguration;
 import br.com.pug.service.AbrigoService;
 import br.com.pug.service.PetService;
 import java.util.Scanner;
@@ -8,9 +9,11 @@ public class AdopetConsoleApplication {
 
     public static void main(String[] args) {
 
-        AbrigoService abrigoService = new AbrigoService();
+        ClientHttpConfiguration client = new  ClientHttpConfiguration();
 
-        PetService petService = new PetService();
+        AbrigoService abrigoService = new AbrigoService(client);
+
+        PetService petService = new PetService(client);
 
         System.out.println("##### BOAS VINDAS AO SISTEMA ADOPET CONSOLE #####");
         try {
